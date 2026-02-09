@@ -6,9 +6,9 @@
   <title>Encuesta San Valentín</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       text-align: center;
-      background-color: #ffe6f0;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7); /* degradado romántico */
       margin: 0;
       padding: 0;
     }
@@ -18,32 +18,45 @@
     .container {
       margin-top: 50px;
     }
+    h1, h2 {
+      color: #b30059;
+    }
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
       margin: 10px;
       font-size: 18px;
       cursor: pointer;
       border: none;
-      border-radius: 8px;
+      border-radius: 25px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
     }
     #yesBtn {
       background-color: #ff4da6;
       color: white;
-      transition: all 0.3s ease;
     }
     #noBtn {
-      background-color: #999;
+      background-color: #ff9999;
+      color: white;
+    }
+    #readyBtn {
+      background-color: #ff66b2;
       color: white;
     }
     #finalMessage {
-      font-size: 24px;
-      color: #d63384;
+      font-size: 26px;
+      color: #b30059;
       margin-top: 30px;
+      font-weight: bold;
     }
     img {
       max-width: 300px;
       margin: 20px auto;
       display: block;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -83,7 +96,7 @@
     noBtn.addEventListener("click", () => {
       yesSize += 10;
       yesBtn.style.fontSize = yesSize + "px";
-      yesBtn.style.padding = (10 + yesSize/4) + "px " + (20 + yesSize/4) + "px";
+      yesBtn.style.padding = (12 + yesSize/4) + "px " + (24 + yesSize/4) + "px";
 
       if (yesSize >= 80) {
         noBtn.classList.add("hidden");
@@ -94,9 +107,10 @@
     yesBtn.addEventListener("click", () => {
       yesBtn.classList.add("hidden");
       noBtn.classList.add("hidden");
-      finalMessage.textContent = "Te espero para ese día mi princesa";
+      finalMessage.textContent = "💖 Te espero para ese día mi princesa 💖";
       finalMessage.classList.remove("hidden");
     });
   </script>
 </body>
 </html>
+
