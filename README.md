@@ -48,14 +48,16 @@
   </style>
 </head>
 <body>
+  <!-- Pantalla inicial -->
   <div id="startScreen" class="container">
     <h1>¿Estás lista?</h1>
     <button id="readyBtn">Si lo estoy</button>
   </div>
 
+  <!-- Encuesta (segunda pantalla) -->
   <div id="surveyScreen" class="container hidden">
-    <img src="https://i.ibb.co/BH5VZsMg/imagen.png" alt="Pregunta">
     <h2>¿Quieres pasar el 14 de febrero conmigo?</h2>
+    <img src="https://i.ibb.co/BH5VZsMg/imagen.png" alt="Pregunta">
     <button id="yesBtn">Sí</button>
     <button id="noBtn">No</button>
     <div id="finalMessage" class="hidden"></div>
@@ -71,11 +73,13 @@
 
     let yesSize = 18; // tamaño inicial de fuente del botón "Sí"
 
+    // Al presionar "Si lo estoy", se pasa a la encuesta
     readyBtn.addEventListener("click", () => {
       startScreen.classList.add("hidden");
       surveyScreen.classList.remove("hidden");
     });
 
+    // Al presionar "No", el botón "Sí" se agranda
     noBtn.addEventListener("click", () => {
       yesSize += 10;
       yesBtn.style.fontSize = yesSize + "px";
@@ -86,6 +90,7 @@
       }
     });
 
+    // Al presionar "Sí", aparece el mensaje final
     yesBtn.addEventListener("click", () => {
       yesBtn.classList.add("hidden");
       noBtn.classList.add("hidden");
